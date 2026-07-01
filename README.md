@@ -11,14 +11,14 @@ Script em Python que automatiza o processo de **padronização e composição de
 - **Geração de legenda em imagem**: cria uma legenda a partir de um texto, quebrando as linhas automaticamente (`textwrap`) e renderizando como imagem PNG com fonte customizada via PIL.
 - **Composição em camadas**: monta o vídeo final combinando uma imagem de capa, a legenda gerada e o vídeo normalizado em posições específicas na tela.
 - **Exportação**: gera o vídeo final (`novo_video.mp4`) pronto para uso.
-## 🛠️ Tecnologias
+## Tecnologias
  
 - [Python 3](https://www.python.org/)
 - [MoviePy](https://zulko.github.io/moviepy/) — edição e composição de vídeo
 - [Pillow (PIL)](https://python-pillow.org/) — geração da imagem de legenda
 - [ImageMagick](https://imagemagick.org/) — renderização de texto (usado pelo MoviePy)
 - Desenvolvido e testado em **Google Colab**
-## 📋 Pré-requisitos
+## Pré-requisitos
  
 ```bash
 pip install moviepy pillow
@@ -29,7 +29,7 @@ Arquivos necessários no diretório de execução:
 - `imagem.jpg` — imagem de capa/fundo
 - `Poppins-Regular.ttf` — fonte usada na legenda (ou substitua por outra de sua preferência)
 - 
-## ▶️ Como usar
+## Como usar
  
 1. Coloque o vídeo de entrada como `video.mp4` no mesmo diretório do script.
 2. Defina o texto da legenda na variável `texto`.
@@ -37,7 +37,7 @@ Arquivos necessários no diretório de execução:
 4. Execute o script (célula por célula, se estiver no Colab/Jupyter).
 5. O vídeo final será salvo como `novo_video.mp4`.
 6. 
-## ⚙️ Como funciona (visão geral)
+## Como funciona (visão geral)
  
 1. **Leitura do vídeo**: carrega o `video.mp4` e extrai duração, largura e altura.
 2. **Preparação da legenda**: o texto é quebrado em linhas com `textwrap.fill()` e desenhado em uma imagem transparente com `PIL.ImageDraw`.
@@ -46,7 +46,7 @@ Arquivos necessários no diretório de execução:
    - Se a altura for menor que o alvo, redimensiona pela altura e corta a largura se necessário.
    - Se a altura já for maior que o alvo, corta diretamente pela altura.
 4. **Composição final**: a imagem de capa, a legenda e o vídeo normalizado são posicionados como camadas (`CompositeVideoClip`) e exportados em um único arquivo.
-## 🐛 Problemas conhecidos / melhorias futuras
+## Problemas conhecidos / melhorias futuras
  
 Este script foi extraído de um notebook exploratório do Colab e ainda tem pontos a organizar antes de ser considerado "produção":
  
