@@ -4,7 +4,7 @@ Readme · MD
  
 Script em Python que automatiza o processo de **padronização e composição de vídeos verticais**, combinando redimensionamento inteligente, corte centralizado, sobreposição de imagem e geração automática de legendas — pensado para produção de conteúdo em formato de vídeo curto (Reels, Shorts, TikTok).
  
-## ✨ Funcionalidades
+## Funcionalidades
  
 - **Normalização automática de dimensões**: ajusta qualquer vídeo de entrada para a resolução alvo (1080x900), decidindo dinamicamente entre redimensionar por largura ou por altura conforme a proporção original.
 - **Corte centralizado (center crop)**: quando o redimensionamento ultrapassa as dimensões alvo, o vídeo é cortado a partir do centro, evitando distorções.
