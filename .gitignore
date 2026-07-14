@@ -1,0 +1,20 @@
+# Chaves de API e variáveis de ambiente (NUNCA suba este arquivo)
+.env
+
+# Pastas de mídia pesada (Vídeos de entrada e saídas renderizadas)
+input/
+output/
+
+# Arquivos temporários do Python e do Jupyter Notebook
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Ambientes virtuais (caso utilize no futuro para isolar o projeto)
+venv/
+env/
+.venv/
+
+# Arquivos temporários do sistema operacional (Ocultos no Windows/Mac)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,7 @@
+# Processamento de Vídeo e Imagem
+moviepy
+Pillow
+
+# Integração Notion e Variáveis de Ambiente
+requests
+python-dotenv
