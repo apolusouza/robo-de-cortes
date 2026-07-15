@@ -7,7 +7,7 @@ normalize = VideoNormalize(video)
 proporcao = normalize._calculate_center()
 
 autenticado = normalize._normalizar()
-print(autenticado.w)
+print(f"A largura:{autenticado.w}, altura:{autenticado.h}")
 
 
 

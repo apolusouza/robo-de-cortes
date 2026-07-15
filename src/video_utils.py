@@ -24,8 +24,10 @@ class VideoNormalize:
       kwargs[key_side] = measure    
       if media == None:
        return self.video.cropped(**kwargs)
-      else:
-        return media.cropped(**kwargs)  
+      elif
+        return media.cropped(**kwargs)
+      elif:
+        return media(x_center=kwargs['x_center'],key_side=measure)
 
 
   def _normalizar(self):
@@ -37,12 +39,21 @@ class VideoNormalize:
         center = self._calculate_center(video=self.video)
         return self._cropped_video(media=self.video, xy_center=center, key_side='height', measure=HEIGHT)
     
-    #Altura diferente de 400px
-    elif self.video.h != HEIGHT: 
+    #Altura diferente de 400px (menor ou maior)
+    #menor aumenta com rsized - verifica se W ficou maior - ok - corta as sobras
+    #maior corta parte superior e inferior retorna o objeto
+    elif self.video.h < HEIGHT:
       video = self.video.resized(height=HEIGHT)
-      print(video.w,video.h)
-      if self.video != WIDTH:
+      if video.w > WIDTH:
+        center = self._calculate_center(vide=video)        
+        return self._cropped_video(video=video,xy_center=center[0],key_side='width',width=WIDTH)
+
+
+    elif self.video.h > HEIGHT: 
+      video = self.video.resized(height=HEIGHT)      
+      if self.video != WIDTH:        
         xy_center = self._calculate_center(video=self.video)
-        return self._cropped_video(media=self.video, xy_center=xy_center, key_side='width', measure=WIDTH)
+        print(f"Largura: {video.w}, Altura: {video.h}")
+        return self._cropped_video(media=video, xy_center=xy_center, key_side='width', measure=WIDTH)
   
 
