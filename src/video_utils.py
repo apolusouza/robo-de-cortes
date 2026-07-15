@@ -1,11 +1,18 @@
-class video_normalize:
-  def calculate_xy_ct(element):
-    x_center = element.w/2
-    y_center = element.h/2
-    xy_center = [x_center,y_center]
-    return xy_center
+from src.config import WIDTH, HEIGHT
 
-  def cropped_video(element, xy_center, key_side, measure):
+class VideoNormalize:
+  def __init__(self, video):
+    self.video = video
+
+  def _calculate_center(self):
+    positions_float = [self.video.w/2, self.video.h/2]
+    positions_int = []
+    for position in positions_float:
+      positions_int.append(int(position))
+    return positions_int
+
+
+  def _cropped_video(self,element, xy_center, key_side, measure):
     kwargs = {
         'x_center': xy_center[0],
         'y_center': xy_center[1],
@@ -15,7 +22,7 @@ class video_normalize:
     kwargs[key_side] = measure
     return element.crop(**kwargs)
 
-  def verifica():
+  def _normalizar(self):
     #Largura maior que 1080 ou menor
     if video.w < WIDTH or video.w > WIDTH:
       width_norm = video.resize(width=WIDTH)
