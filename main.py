@@ -6,6 +6,7 @@ video = VideoFileClip(VIDEO_PATH)
 normalize = VideoNormalize(video)
 proporcao = normalize._calculate_center()
 
-print(f'Proporção: {proporcao}')
+autenticado = normalize._normalizar()
+print(f'Altura: {autenticado.h}, Largura:{autenticado.w}')
 
 
