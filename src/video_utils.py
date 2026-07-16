@@ -5,14 +5,21 @@ class VideoNormalize:
   def __init__(self, video):
     self.video = video
 
-  def _calculate_center(self, video=None):
-    if video is None:
+  def _center(self, video=None):    
+    def calculate_center(video):
+      print(video)
+      positions_float = [video.w/2, video.h/2]
+      positions_int = []
+      for position in positions_float:
+        positions_int.append(int(position))
+      return positions_int
+
+    if video == None:
       video = self.video
-    positions_float = [video.w/2, video.h/2]
-    positions_int = []
-    for position in positions_float:
-      positions_int.append(int(position))
-    return positions_int
+      calculate_center(video)
+    elif video != None:
+      calculate_center(video)
+  
 
   def _cropped_video(self, media=None, xy_center=None, key_side=None, measure=None):
       kwargs = {
@@ -24,10 +31,8 @@ class VideoNormalize:
       kwargs[key_side] = measure    
       if media == None:
        return self.video.cropped(**kwargs)
-      elif
+      elif media != None:
         return media.cropped(**kwargs)
-      elif:
-        return media(x_center=kwargs['x_center'],key_side=measure)
 
 
   def _normalizar(self):
@@ -49,11 +54,11 @@ class VideoNormalize:
         return self._cropped_video(video=video,xy_center=center[0],key_side='width',width=WIDTH)
 
 
-    elif self.video.h > HEIGHT: 
-      video = self.video.resized(height=HEIGHT)      
-      if self.video != WIDTH:        
-        xy_center = self._calculate_center(video=self.video)
-        print(f"Largura: {video.w}, Altura: {video.h}")
-        return self._cropped_video(media=video, xy_center=xy_center, key_side='width', measure=WIDTH)
+    elif self.video.h > HEIGHT:
+        print(self.video)       
+        center = int(self.video.w/2)
+        print(center)
+        return self.video.cropped(y_center=center,height=HEIGHT)
+
   
 
