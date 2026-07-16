@@ -1,6 +1,9 @@
 from src.config import *
 from src.video_utils import * 
+from src.image_utils import *
+
 from moviepy import VideoFileClip, AudioClip, CompositeVideoClip, ImageClip
+
 
 video = VideoFileClip(VIDEO_PATH)
 normalize = VideoNormalize(video)
@@ -11,4 +14,6 @@ print(f"A largura:{autenticado.w}, altura:{autenticado.h}")
 
 texto = "Python é uma linguagem de programação de alto nível, amplamente utilizada para desenvolvimento web, análise de dados e inteligência artificial."
 
-
+image = GeradorLegenda(texto)
+retorno =image.gerar_legenda(texto)
+print(retorno)
