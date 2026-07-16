@@ -1,7 +1,7 @@
 from src.config import *
 import textwrap
 import sys
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw, ImageText
 
 class GeradorLegenda:
   def __init__(self, texto):
@@ -10,6 +10,7 @@ class GeradorLegenda:
   #recebe um array e calcula e retorna o tamanho da text_box
   def _size_box(self):
     text = textwrap.fill(self.texto, 35)
+    self.texto = text
     if len(text)>=100 and len(text)<=150:
       array_box = text.split('\n')
       size_line = len(array_box[0])
@@ -26,12 +27,14 @@ class GeradorLegenda:
 
   def _create_box(self): 
     size_xy = self._size_box()
-    print(size_xy) 
-    print(int(size_xy[0]))
-    font = ImageFont.truetype("Poppins-Regular.ttf", FONT_SIZE_PT) #padrão fonte 48
+
+    im = Image.new("RGBA",(int(size_xy[0]), int(size_xy[1])),'#ff000000')
+    font = ImageFont.truetype(FONT_PATH, FONT_SIZE_PT) #padrão fonte 48
     
-    #d.multiline_text((30, 30), texto_quebrado, fill="white", font=font)
-    im = Image.new("RGBA", (int(size_line), int(size_height),'#ff000000'))
-    d = ImageDraw.Draw(im)
-    d.multiline_text((0,0), text_box, fill="white", font=font)
-    im.save('legenda.png')
+    texto = ImageText.Text(self.text,font)
+    
+    im.text(self.texto,font)
+    desenho = ImageDraw.Draw(im)
+    
+    print(f"Largura:{int(size_xy[0])} e Altura: {int(size_xy[1])}")
+    im.save('teste.png')

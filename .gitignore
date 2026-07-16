@@ -9,6 +9,7 @@ output/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+teste.py
 
 # Ambientes virtuais (caso utilize no futuro para isolar o projeto)
 venv/

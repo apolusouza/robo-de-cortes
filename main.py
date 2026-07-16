@@ -16,4 +16,4 @@ texto = "Python é uma linguagem de programação de alto nível, amplamente uti
 
 image = GeradorLegenda(texto)
 retorno =image._create_box()
-print(retorno)
+print(f"Valor retornado do _size_line:{retorno}")
