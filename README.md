@@ -1,46 +1,55 @@
-# 🤖 Robô de Cortes
+#✂️ Robô de Cortes (Em Construção)
 
-> **⚠️ Nota de Desenvolvimento (Vibecoding):** Este aplicativo foi inteiramente desenvolvido com IA utilizando a abordagem de **vibecoding**. Todo o código, estrutura e lógica foram gerados e iterados com a assistência de Inteligência Artificial.
+> **⚠️ Status do Projeto:** Em Construção / Fase de Testes 🚧
 
 ## 📖 Sobre o Projeto
-O **Robô de Cortes** é uma ferramenta automatizada desenvolvida em Python para facilitar o processo de criação e gerenciamento de cortes de vídeos. Ele integra edição de vídeo, manipulação de imagens (para legendas ou thumbnails) e sincronização com o Notion para o gerenciamento inteligente do fluxo de trabalho.
+O **Robô de Cortes** é uma ferramenta automatizada desenvolvida em Python com o objetivo de agilizar e padronizar a criação de cortes de vídeos. O projeto está sendo testado e estruturado para gerar conteúdo otimizado voltado para postagens padrão em diversas redes sociais.
 
-## ⚙️ Funcionalidades Principais
-- 🎬 **Edição de Vídeo (`video_utils.py`)**: Processamento e corte automatizado de arquivos de mídia.
-- 🖼️ **Processamento de Imagem (`image_utils.py`)**: Geração ou manipulação de elementos visuais, textos e overlays, utilizando fontes personalizadas.
-- 📝 **Integração com Notion (`notion_utils.py`)**: Leitura e atualização de tarefas, pautas, ou status de vídeos diretamente em bancos de dados do Notion.
+A aplicação tem como foco unir o processamento de mídia (cortes, edições e manipulação de imagens) com um fluxo de organização integrado (utilizando o Notion).
 
-## 📂 Estrutura do Projeto
+## ⚙️ Funcionalidades em Desenvolvimento
+- 🎬 **Edição Automatizada (`video_utils.py`)**: Geração de recortes curtos focados no engajamento para plataformas como TikTok, Reels e Shorts.
+- 🖼️ **Manipulação Visual (`image_utils.py`)**: Criação de thumbnails, adição de logotipos, legendas estilizadas utilizando fontes locais (como a *Poppins*) e processamento de elementos gráficos padrão.
+- 📝 **Integração com Notion (`notion_utils.py`)**: Gerenciamento das postagens, status dos vídeos e pautas de edição de forma estruturada.
+- ⚙️ **Configuração Centralizada (`config.py`)**: Sistema para gerenciar caminhos, dimensões de vídeo, tempos de corte e credenciais.
+
+## 📂 Estrutura de Arquivos
 ```text
 robo-de-cortes/
 ├── assets/
-│   ├── fonts/           # Fontes utilizadas para textos e legendas (ex: Poppins)
-│   └── images/          # Imagens base, assets visuais e overlays
+│   ├── fonts/           # Fontes para padronização visual das legendas (ex: Poppins)
+│   └── images/          # Assets de imagem para composição dos vídeos
 ├── src/
-│   ├── config.py        # Configurações gerais, parâmetros e credenciais
-│   ├── image_utils.py   # Módulo responsável pela manipulação de imagens
-│   ├── notion_utils.py  # Módulo de conexão e interação com a API do Notion
-│   └── video_utils.py   # Módulo encarregado do processamento e corte de vídeos
-├── main.py              # Ponto de entrada e orquestrador da aplicação
-├── requirements.txt     # Dependências e bibliotecas Python do projeto
-└── README.md            # Documentação do projeto
+│   ├── config.py        # Configurações de exportação, proporções e tokens (Em teste)
+│   ├── image_utils.py   # Manipulação e geração de assets visuais
+│   ├── notion_utils.py  # Conexão e sincronização de dados via Notion API
+│   └── video_utils.py   # Lógica principal de processamento de vídeos
+├── main.py              # Script principal para execução dos testes de automação
+├── requirements.txt     # Dependências (ainda sujeitas a alterações)
+└── README.md            # Documentação atual do status do projeto
 ```
 
-## 🚀 Como Executar
+## 🚀 Como Testar Localmente
+
+*Nota: Como o projeto ainda está em fase de testes para padronização das postagens, instabilidades podem ocorrer.*
 
 1. **Instale as dependências:**
-   Certifique-se de ter o Python instalado. Execute o comando abaixo na raiz do projeto:
    ```bash
    pip install -r requirements.txt
    ```
 
 2. **Configure o ambiente:**
-   Ajuste as chaves de API (como o token de integração do Notion) e os caminhos de pastas necessários no arquivo `src/config.py` ou através de variáveis de ambiente.
+   Edite o arquivo `src/config.py` ou configure suas variáveis de ambiente com os acessos ao Notion e diretórios padrão de entrada/saída de mídia.
 
-3. **Inicie o bot:**
+3. **Inicie o script:**
    ```bash
    python main.py
    ```
 
+## 🎯 Próximos Passos (Roadmap)
+- [ ] Estabilizar os padrões de proporção para as redes sociais alvo (9:16, 1:1, etc).
+- [ ] Refinar a precisão dos cortes automáticos.
+- [ ] Testar a sincronização final e pipeline de postagem via Notion.
+
 ---
-*Desenvolvido com 🧠 IA (Vibecoding)*
+*Projeto atualmente sob testes ativos de integração e formatação visual para mídias sociais.*
